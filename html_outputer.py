@@ -26,6 +26,6 @@ class HtmlOutputer(object):
 			strings = data.split('/')
 			local = strings[-1]
 			file_name = str(file_path) + '/' + str(local)
-			print file_name
+			#print file_name
 			urllib.urlretrieve(data, file_name)
 		pass

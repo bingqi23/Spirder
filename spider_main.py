@@ -21,12 +21,12 @@ class SpiderMain(object):
 				self.urls.add_new_urls(new_urls)
 				#self.outputer.collect_data(new_data)
 				self.outputer.downloadImg(new_data, new_title)
-				if count == 3:
+				if count == 100:
 					break
 				count = count + 1
 			except:
 				print 'craw failed'
-				break
+				#break
 
 		#self.outputer.output_html()
 
