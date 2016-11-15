@@ -14,26 +14,19 @@ class HtmlParser(object):
 
 	def _get_new_urls(self, page_url, soup):
 		new_urls = set()
-		links = soup.find_all('a', href=re.compile(r"/art/setu/*"), target=re.compile(r"_blank"))
+		links = soup.find_all('a', href=re.compile(r"/art/xiaoshuo/*"), target=re.compile(r"_blank"))
 		#print links
 		for link in links:
-			#print link
 			new_url = link['href']
-			#print new_url
 			new_full_url = urlparse.urljoin(page_url, new_url)
-			#print new_full_url
 			new_urls.add(new_full_url)
 		return new_urls
 
 	def _get_new_data(self, soup):
 		img_urls = set()
-		src_urls = soup.find_all('img')
-		for link in src_urls:
-			#print link
-			src_url = link['src']
-			img_urls.add(src_url)
-			#print src_url
-		return img_urls
+		content = soup.find_all("div",attrs={"class": "artbody imgbody"})
+		#print content
+		return content
 
 	def parse(self, page_url, html_cont):
 		if html_cont is None:

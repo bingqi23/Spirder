@@ -20,7 +20,8 @@ class SpiderMain(object):
 				new_urls, new_data ,new_title= self.parser.parse(new_url, html_cont)
 				self.urls.add_new_urls(new_urls)
 				#self.outputer.collect_data(new_data)
-				self.outputer.downloadImg(new_data, new_title)
+				#self.outputer.downloadImg(new_data, new_title)
+				self.outputer.downloadTxt(new_data, new_title);
 				if count == 100:
 					break
 				count = count + 1
@@ -31,7 +32,7 @@ class SpiderMain(object):
 		#self.outputer.output_html()
 
 if __name__=="__main__":
-	root_url = "http://www.2277r.com/art/setu/toukuizipai/"
-	#root_url = "http://baike.baidu.com/view/21087.htm"
+	#root_url = "http://www.2277r.com/art/setu/katongdongman/"
+	root_url = "http://www.2277r.com/art/xiaoshuo/dushijiqing/"
 	obj_spider = SpiderMain()
 	obj_spider.craw(root_url)
